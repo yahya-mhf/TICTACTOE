@@ -22,10 +22,17 @@ class Board:
 
     def is_game_over(self, player): # retrun False, tie, (X win, O win)
         # check is X win
-        # check all rows and colomns
+        # check all rows 
         for i, row in enumerate(self.table):
             for j, case in enumerate(row):
-                if self.table[i][j] != player and self.table[j][i] != player:
+                if self.table[i][j] != player:
+                    break
+            else:
+                return f"WIN {player}"
+        # check all columns
+        for i, row in enumerate(self.table):
+            for j, case in enumerate(row):
+                if self.table[j][i] != player:
                     break
             else:
                 return f"WIN {player}"
